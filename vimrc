@@ -1,3 +1,5 @@
+let $PYTHONHOME='/opt/local/Library/Frameworks/Python.framework/Versions/2.7'
+
 syntax on
 set mouse=a
 
@@ -36,4 +38,27 @@ vnoremap <Leader>s :sort<CR>
 " block move
 vnoremap < <gv 
 vnoremap > >gv
+
+call pathogen#infect()
+
+" vim-powerline
+set laststatus=2
+
+" ctrlp
+let g:ctrlp_max_height = 30
+set wildignore+=*.pyc
+set wildignore+=*_build/*
+set wildignore+=*/coverage/*
+
+" python-mode
+map <Leader>g :call RopeGotoDefinition()<CR>
+let ropenvim_enable_shortcuts = 1
+let g:pymode_rope_goto_def_newwin = "vnew"
+let g:pymode_rope_extended_complete = 1
+let g:pymode_breakpoint = 0
+let g:pymode_syntax = 1
+let g:pymode_syntax_builtin_objs = 0
+let g:pymode_syntax_builtin_funcs = 0
+
+map <Leader>b Oimport ipdb; ipdb.set_trace()
 
